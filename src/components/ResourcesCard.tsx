@@ -1,29 +1,39 @@
 import { Card } from '../styles/StyledComponents';
 import styled from '@emotion/styled';
 
-const ResourceMeter = styled.div`
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+const ResourceContainer = styled.div`
   padding: 1rem;
-  margin-bottom: 1rem;
+  text-align: center;
 `;
 
-const ProgressBar = styled.div<{ value: number }>`
-  background: rgba(255, 255, 255, 0.2);
-  height: 8px;
-  border-radius: 4px;
-  position: relative;
-  margin-top: 0.5rem;
+const ResourceTitle = styled.h2`
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+`;
 
-  &::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: ${props => props.value}%;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 4px;
+const ResourceDescription = styled.p`
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+`;
+
+const ResourceLinks = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+  a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: all 0.2s;
+
+    &:hover {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
   }
 `;
 
@@ -35,24 +45,25 @@ const ResourcesCard = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      gradient="linear-gradient(135deg, #FF5722 0%, #FF9800 100%)"
+      gradient="linear-gradient(135deg, #2D3748 0%, #4A5568 100%)"
     >
-      <h2>Server Resources</h2>
-      <ResourceMeter>
-        <div>CPU Usage</div>
-        <ProgressBar value={65} />
-        <div style={{ textAlign: 'right' }}>65%</div>
-      </ResourceMeter>
-      <ResourceMeter>
-        <div>Memory Usage</div>
-        <ProgressBar value={45} />
-        <div style={{ textAlign: 'right' }}>45%</div>
-      </ResourceMeter>
-      <ResourceMeter>
-        <div>Disk Space</div>
-        <ProgressBar value={80} />
-        <div style={{ textAlign: 'right' }}>80%</div>
-      </ResourceMeter>
+      <ResourceContainer>
+        <ResourceTitle>Developer Resources</ResourceTitle>
+        <ResourceDescription>
+          Connect with the developer community and explore resources to enhance your coding journey.
+        </ResourceDescription>
+        <ResourceLinks>
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+          <a href="https://dev.to" target="_blank" rel="noopener noreferrer">
+            DEV Community
+          </a>
+          <a href="https://daily.dev/" target="_blank" rel="noopener noreferrer">
+            Daily Dev
+          </a>
+        </ResourceLinks>
+      </ResourceContainer>
     </Card>
   );
 };
