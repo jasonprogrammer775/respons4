@@ -7,6 +7,12 @@ import SystemCard from './components/SystemCard'
 import ActionsCard from './components/ActionsCard'
 import TrafficCard from './components/TrafficCard'
 import ResourcesCard from './components/ResourcesCard'
+import EmptyCard1 from './components/EmptyCard1'
+import EmptyCard2 from './components/EmptyCard2'
+import EmptyCard3 from './components/EmptyCard3'
+import EmptyCard4 from './components/EmptyCard4'
+
+
 import { Grid } from './styles/StyledComponents'
 import styled from '@emotion/styled'
 
@@ -29,18 +35,28 @@ function App() {
   return (
     <>
       <IframeContainer>
-        <iframe src="https://avatarjay.netlify.app/" title="Avatar Jay" />
+        <iframe src="https://jport1.netlify.app/" title="Avatar Jay" />
       </IframeContainer>
       <Grid>
         <WeatherCard />
-      <NewsCard />
-      <MarsWeatherCard />
-      <CryptoCard />
-      <SystemCard />
-      <ActionsCard />
-      <TrafficCard />
-      <ResourcesCard />
-    </Grid>
+        <NewsCard />
+        <MarsWeatherCard />
+        <CryptoCard />
+        <SystemCard />
+        <ActionsCard />
+        <TrafficCard />
+        <ResourcesCard />
+      
+          <EmptyCard1 />
+          <EmptyCard2 />
+          <EmptyCard3 />
+          <EmptyCard4 />
+      </Grid>
+      <IframeContainer>
+        <iframe src="https://avatarjay.netlify.app/" title="Avatar Jay" />
+      </IframeContainer>
+
+
     </>
   )
 }
