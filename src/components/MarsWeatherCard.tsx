@@ -47,7 +47,7 @@ const MarsWeatherCard = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      gradient="linear-gradient(135deg, #FF4D4D 0%, #FF8C8C 100%)"
+      gradient="linear-gradient(135deg, #FF6B4D 0%, #FF4D4D 50%, #8B0000 100%), linear-gradient(45deg, rgba(255, 107, 77, 0.2) 0%, rgba(139, 0, 0, 0.2) 100%)"
     >
       <MarsContent>
         <MarsHeader>

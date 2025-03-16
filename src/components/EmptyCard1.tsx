@@ -65,7 +65,7 @@ const EmptyCard1 = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      gradient="linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%)"
+      gradient="linear-gradient(135deg, #FF6B6B 0%,rgb(235, 88, 9) 100%)"
     >
       <StoryContainer>
         <h2>Hacker News</h2>

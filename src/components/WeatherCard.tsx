@@ -41,6 +41,16 @@ const WeatherCard = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
+      gradient={weather.weather[0].main.toLowerCase().includes('clear') ?
+        'linear-gradient(135deg, #FF8C00 0%, #FFD700 100%)' :
+        weather.weather[0].main.toLowerCase().includes('cloud') ?
+        'linear-gradient(135deg, #636FA4 0%, #E8CBC0 100%)' :
+        weather.weather[0].main.toLowerCase().includes('rain') ?
+        'linear-gradient(135deg, #3B4371 0%, #F3F3F3 100%)' :
+        weather.weather[0].main.toLowerCase().includes('snow') ?
+        'linear-gradient(135deg, #E0EAFC 0%, #CFDEF3 100%)' :
+        'linear-gradient(135deg, #2E3192 0%, #1BFFFF 100%)'
+      }
     >
       <WeatherContent>
         <h2>{weather.name} Weather</h2>

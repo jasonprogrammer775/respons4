@@ -65,7 +65,12 @@ const CryptoCard = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      gradient="linear-gradient(135deg, #FF9900 0%, #FF5733 100%)"
+      gradient={news[0]?.sentiment === 'positive' ?
+        'linear-gradient(135deg, #00C853 0%, #4CAF50 50%, #B2FF59 100%), radial-gradient(circle at top right, rgba(255, 255, 255, 0.2) 0%, transparent 50%)' :
+        news[0]?.sentiment === 'negative' ?
+        'linear-gradient(135deg, #FF5252 0%, #FF1744 50%, #D50000 100%), radial-gradient(circle at top right, rgba(255, 255, 255, 0.15) 0%, transparent 50%)' :
+        'linear-gradient(135deg, #FF9900 0%, #FF5733 50%, #FF3D00 100%), radial-gradient(circle at top right, rgba(255, 255, 255, 0.1) 0%, transparent 50%)'}
+
     >
       <h2>Crypto News</h2>
       <CryptoContent>

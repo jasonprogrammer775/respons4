@@ -93,7 +93,7 @@ const TrafficCard = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      gradient="linear-gradient(135deg, #00BCD4 0%, #2196F3 100%)"
+      gradient="linear-gradient(135deg, #00BCD4 0%,rgb(12, 59, 97) 100%)"
     >
       <ContentWrapper>
         <ProfileSection>

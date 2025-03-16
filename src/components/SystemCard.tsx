@@ -70,7 +70,7 @@ const SystemCard = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      gradient="linear-gradient(135deg, #4CAF50 0%, #45B649 100%)"
+      gradient="linear-gradient(135deg, #4CAF50 0%,rgb(6, 66, 8) 100%)"
     >
       <ProfileHeader>
         <Avatar src={profile.avatar_url} alt={profile.name} />

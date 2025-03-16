@@ -92,7 +92,7 @@ const EmptyCard2 = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      gradient="linear-gradient(135deg, #1F2937 0%, #111827 100%)"
+      gradient="linear-gradient(135deg, #1F2937 0%,rgb(21, 61, 148) 100%)"
     >
       <CryptoContainer>
         <h2>Crypto Market</h2>

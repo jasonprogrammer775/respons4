@@ -45,7 +45,7 @@ const NewsCard = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      gradient="linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)"
+      gradient="linear-gradient(135deg, #6366f1 0%, #4f46e5 100%), linear-gradient(45deg, rgba(99, 102, 241, 0.3) 0%, rgba(79, 70, 229, 0.3) 100%), radial-gradient(circle at top right, rgba(255, 255, 255, 0.2) 0%, transparent 50%)"
     >
       <NewsContent>
         <NewsHeader>

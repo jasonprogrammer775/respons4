@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import './App.css'
 import WeatherCard from './components/WeatherCard'
 import NewsCard from './components/NewsCard'
@@ -11,6 +12,8 @@ import EmptyCard1 from './components/EmptyCard1'
 import EmptyCard2 from './components/EmptyCard2'
 import EmptyCard3 from './components/EmptyCard3'
 import EmptyCard4 from './components/EmptyCard4'
+import CustomCursor from './components/CustomCursor'
+import ScrollProgress from './components/ScrollProgress'
 
 
 import { Grid } from './styles/StyledComponents'
@@ -32,8 +35,17 @@ const IframeContainer = styled.div`
 `
 
 function App() {
+  useEffect(() => {
+    document.body.style.scrollBehavior = 'smooth';
+    return () => {
+      document.body.style.scrollBehavior = 'auto';
+    };
+  }, []);
+
   return (
     <>
+      <CustomCursor />
+      <ScrollProgress />
       <IframeContainer>
         <iframe src="https://jport1.netlify.app/" title="Avatar Jay" />
       </IframeContainer>
