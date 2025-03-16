@@ -44,15 +44,51 @@ const ArticleList = styled.div`
 
 const Article = styled.a`
   background: rgba(255, 255, 255, 0.1);
-  padding: 1rem;
-  border-radius: 8px;
+  padding: 1.25rem;
+  border-radius: 12px;
   color: white;
   text-decoration: none;
-  transition: transform 0.2s;
+  transition: all 0.3s ease;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.05), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+  }
+
+  small {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
 
   &:hover {
-    transform: translateX(5px);
+    transform: translateY(-3px);
     background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+
+    &::before {
+      transform: translateX(100%);
+    }
   }
 `;
 

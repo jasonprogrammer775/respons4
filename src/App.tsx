@@ -16,6 +16,7 @@ import CustomCursor from './components/CustomCursor'
 import ScrollProgress from './components/ScrollProgress'
 
 
+
 import { Grid } from './styles/StyledComponents'
 import styled from '@emotion/styled'
 
@@ -44,6 +45,7 @@ function App() {
 
   return (
     <>
+     
       <CustomCursor />
       <ScrollProgress />
       <IframeContainer>

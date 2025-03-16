@@ -9,6 +9,7 @@ const ImageContainer = styled.div`
   overflow: hidden;
   border-radius: 8px 8px 0 0;
   position: relative;
+  cursor: pointer;
 `;
 
 const APODImage = styled.img`
@@ -42,20 +43,53 @@ const Date = styled.span`
   color: rgba(255, 255, 255, 0.6);
 `;
 
+const MetaInfo = styled.div`
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  align-items: center;
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+`;
+
+const HDLink = styled.a`
+  color: #4CAF50;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
 const LoadingText = styled.div`
   padding: 1rem;
   text-align: center;
   color: rgba(255, 255, 255, 0.8);
 `;
 
+
+
+
+
+
 const NasaAPODCard = () => {
   const [apodData, setApodData] = useState<APODData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
-    const fetchAPOD = async () => {
+    const fetchData = async () => {
       try {
+        setLoading(true);
+        setError(null);
+        
         const data = await getAPOD();
         setApodData(data);
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -66,7 +100,7 @@ const NasaAPODCard = () => {
       }
     };
 
-    fetchAPOD();
+    fetchData();
   }, []);
 
   if (loading) {
@@ -111,12 +145,26 @@ const NasaAPODCard = () => {
       {apodData && (
         <>
           <ImageContainer>
-            <APODImage src={apodData.url} alt={apodData.title} />
+            <APODImage 
+              src={apodData.url} 
+              alt={apodData.title} 
+              onClick={() => setIsExpanded(!isExpanded)} 
+              style={{ height: isExpanded ? '400px' : '200px', transition: 'height 0.3s ease' }}
+            />
           </ImageContainer>
           <ContentContainer>
             <Title>{apodData.title}</Title>
-            <Description>{apodData.explanation}</Description>
+            <Description style={{ WebkitLineClamp: isExpanded ? 'unset' : 3 }}>{apodData.explanation}</Description>
             <Date>{apodData.date}</Date>
+            <MetaInfo>
+              <span>Type: {apodData.media_type}</span>
+              {apodData.hdurl && (
+                <HDLink href={apodData.hdurl} target="_blank" rel="noopener noreferrer">
+                  View HD Version
+                </HDLink>
+              )}
+              <span>API Version: {apodData.service_version}</span>
+            </MetaInfo>
           </ContentContainer>
         </>
       )}

@@ -17,14 +17,42 @@ const StoryList = styled.div`
 const StoryItem = styled.a`
   color: white;
   text-decoration: none;
-  padding: 0.75rem;
+  padding: 1.25rem;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  transition: all 0.2s;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.05), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+  }
 
   &:hover {
+    transform: translateY(-3px);
     background: rgba(255, 255, 255, 0.15);
-    transform: translateX(5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+
+    &::before {
+      transform: translateX(100%);
+    }
   }
 `;
 
