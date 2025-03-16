@@ -6,7 +6,7 @@ export interface CryptoNews {
   source: string;
   published_at: string;
   categories: string[];
-  sentiment: 'positive' | 'negative' | 'neutral';
+  sentiment?: 'positive' | 'negative' | 'neutral';
 }
 
 export interface CryptoNewsResponse {
